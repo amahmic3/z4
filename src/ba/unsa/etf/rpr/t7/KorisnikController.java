@@ -116,4 +116,15 @@ public class KorisnikController {
     public void krajAction(ActionEvent actionEvent) {
         System.exit(0);
     }
+    public void obrisiAction(ActionEvent actionEvent){
+        if(model.getTrenutniKorisnik()!=null) {
+            Korisnik obrisani = model.getTrenutniKorisnik();
+            listKorisnici.getSelectionModel().select(null);
+            model.getKorisnici().removeAll(obrisani);
+            listKorisnici.refresh();
+            Platform.runLater(() -> {
+                model.obrisiKorisnika(obrisani.getId());
+            });
+        }
+    }
 }

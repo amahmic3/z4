@@ -13,18 +13,21 @@ public class KorisniciModel {
     private ObservableList<Korisnik> korisnici = FXCollections.observableArrayList();
     private SimpleObjectProperty<Korisnik> trenutniKorisnik = new SimpleObjectProperty<>();
     private Connection konekcija;
-    private PreparedStatement upitZaPunjenje,upitZaPromjenu;
+    private PreparedStatement upitZaPunjenje,upitZaPromjenu,upitZaBrisanje;
 
     public KorisniciModel() {
         try {
             konekcija= DriverManager.getConnection("jdbc:sqlite:korisnici.db");
             upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password FROM korisnik;");
-            upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?");
+            upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?;");
+            upitZaBrisanje=konekcija.prepareStatement("DELETE FROM korisnik WHERE id=?;");
+            //vratiNaDefault();
         } catch (SQLException throwables) {
             regenerisiBazu();
             try {
                 upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password FROM korisnik;");
-                upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?");
+                upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?;");
+                upitZaBrisanje=konekcija.prepareStatement("DELETE FROM korisnik WHERE id=?;");
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -117,6 +120,14 @@ public class KorisniciModel {
             upitZaPromjenu.setString(5,k.getPassword());
             upitZaPromjenu.setInt(6,k.getId());
             upitZaPromjenu.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    public void obrisiKorisnika(int k){
+        try {
+            upitZaBrisanje.setInt(1,k);
+            upitZaBrisanje.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
