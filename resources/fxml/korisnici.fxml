@@ -55,7 +55,7 @@
         <menus>
           <Menu text="_File">
                <items>
-                  <MenuItem text="_Save">
+                  <MenuItem text="_Save" onAction="#spasi">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator>
@@ -80,7 +80,7 @@
           </Menu>
           <Menu text="_Help">
             <items>
-              <MenuItem text="_About" />
+              <MenuItem text="_About" onAction="#abouUsAction"/>
             </items>
           </Menu>
         </menus>

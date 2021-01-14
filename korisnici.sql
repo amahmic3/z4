@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS "korisnik" (
 	"email"	TEXT,
 	"username"	TEXT,
 	"password"	TEXT,
-	PRIMARY KEY("id" AUTOINCREMENT)
+	PRIMARY KEY("id")
 );
     INSERT INTO korisnik(ime,prezime,email,username,password) VALUES("Vedran", "Ljubović", "vljubovic@etf.unsa.ba", "vedranlj", "test");
     INSERT INTO korisnik(ime,prezime,email,username,password) VALUES("Amra", "Delić", "adelic@etf.unsa.ba", "amrad", "test");

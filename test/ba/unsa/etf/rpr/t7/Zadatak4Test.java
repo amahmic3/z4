@@ -1,25 +1,12 @@
-/*package ba.unsa.etf.rpr.t7;
+package ba.unsa.etf.rpr.t7;
 
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.testfx.api.FxRobot;
-import org.testfx.framework.junit5.ApplicationExtension;
-import org.testfx.framework.junit5.Start;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class Zadatak4Test {
 
@@ -57,4 +44,3 @@ public class Zadatak4Test {
         model.zapisiDatoteku(null);
     }
 }
-*/

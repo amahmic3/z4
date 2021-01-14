@@ -4,8 +4,10 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.util.Scanner;
 
@@ -135,6 +137,20 @@ public class KorisniciModel {
             upitZaBrisanje.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+        }
+    }
+    public void zapisiDatoteku(File fajl){
+        if(fajl!=null){
+            try {
+                PrintWriter pisac = new PrintWriter(fajl);
+                for(Korisnik k: this.getKorisnici()){
+                    pisac.println(k.getUsername()+":"+k.getPassword()+":"+k.getId()+":"+k.getId()+":"+k.getIme()+" "+k.getPrezime()+"::");
+                }
+                pisac.flush();
+                pisac.close();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

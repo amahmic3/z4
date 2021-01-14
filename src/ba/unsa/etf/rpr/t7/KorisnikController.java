@@ -3,9 +3,16 @@ package ba.unsa.etf.rpr.t7;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListView;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
+import java.io.IOException;
+
+import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
 public class KorisnikController {
     public TextField fldIme;
@@ -124,4 +131,25 @@ public class KorisnikController {
             });
         }
     }
+    public void abouUsAction(ActionEvent actionEvent) throws IOException {
+        Stage prozor = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/about.fxml"));
+        loader.setController(new AboutController());
+        prozor.setResizable(false);
+        prozor.setTitle("About");
+        prozor.setScene(new Scene(loader.load(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        prozor.show();
+    }
+    public void spasi(ActionEvent actionEvent){
+        MenuItem menuItem = (MenuItem)actionEvent.getTarget();
+        ContextMenu cm = menuItem.getParentPopup();
+        Scene scene = cm.getScene();
+        Window window = scene.getWindow();
+
+        FileChooser fajl = new FileChooser();
+        fajl.setTitle("Save");
+        fajl.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text files","*.txt"));
+        model.zapisiDatoteku(fajl.showSaveDialog(window));
+    }
+
 }
