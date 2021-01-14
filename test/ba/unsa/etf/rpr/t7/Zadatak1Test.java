@@ -1,4 +1,4 @@
-/*package ba.unsa.etf.rpr.t7;
+package ba.unsa.etf.rpr.t7;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,11 +10,11 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
 
-import java.io.File;
 import java.sql.*;
 
 import static javafx.scene.layout.Region.USE_COMPUTED_SIZE;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 // Svrha ove klase je da se uvjeri da se promjene na grafičkom korisničkom interfejsu odražavaju na bazu
 // i obrnuto
@@ -64,4 +64,3 @@ public class Zadatak1Test {
         }
     }
 }
-*/

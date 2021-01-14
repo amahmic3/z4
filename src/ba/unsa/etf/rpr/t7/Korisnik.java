@@ -1,8 +1,10 @@
 package ba.unsa.etf.rpr.t7;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Korisnik {
+    private SimpleIntegerProperty id;
     private SimpleStringProperty ime, prezime, email, username, password;
 
     public Korisnik(String ime, String prezime, String email, String username, String password) {
@@ -12,6 +14,15 @@ public class Korisnik {
         this.username = new SimpleStringProperty(username);
         this.password = new SimpleStringProperty(password);
     }
+    public Korisnik(int id,String ime, String prezime, String email, String username, String password) {
+        this.id=new SimpleIntegerProperty(id);
+        this.ime = new SimpleStringProperty(ime);
+        this.prezime = new SimpleStringProperty(prezime);
+        this.email = new SimpleStringProperty(email);
+        this.username = new SimpleStringProperty(username);
+        this.password = new SimpleStringProperty(password);
+    }
+
 
     @Override
     public String toString() {
@@ -78,5 +89,15 @@ public class Korisnik {
         this.password.set(password);
     }
 
+    public int getId() {
+        return id.get();
+    }
 
+    public SimpleIntegerProperty idProperty() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id.set(id);
+    }
 }

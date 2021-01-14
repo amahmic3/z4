@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.t7;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
@@ -35,6 +36,9 @@ public class KorisnikController {
                 fldEmail.textProperty().unbindBidirectional(oldKorisnik.emailProperty() );
                 fldUsername.textProperty().unbindBidirectional(oldKorisnik.usernameProperty() );
                 fldPassword.textProperty().unbindBidirectional(oldKorisnik.passwordProperty() );
+                Platform.runLater(()->{
+                    model.azururajKorisnika(oldKorisnik);
+                });
             }
             if (newKorisnik == null) {
                 fldIme.setText("");
@@ -50,6 +54,7 @@ public class KorisnikController {
                 fldUsername.textProperty().bindBidirectional( newKorisnik.usernameProperty() );
                 fldPassword.textProperty().bindBidirectional( newKorisnik.passwordProperty() );
             }
+
         });
 
         fldIme.textProperty().addListener((obs, oldIme, newIme) -> {
