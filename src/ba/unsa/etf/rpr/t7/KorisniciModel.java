@@ -105,6 +105,11 @@ public class KorisniciModel {
     }
 
     public void setTrenutniKorisnik(Korisnik trenutniKorisnik) {
+        if(this.trenutniKorisnik.get()!=null){
+            Korisnik k=this.trenutniKorisnik.get();
+             Thread azuriranje = new Thread(()->{azururajKorisnika(k);});
+             azuriranje.run();
+        }
         this.trenutniKorisnik.set(trenutniKorisnik);
     }
 
