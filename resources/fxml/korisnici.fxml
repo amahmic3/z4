@@ -71,9 +71,9 @@
                         <MenuItem mnemonicParsing="false" text="English" />
                     </items>
                   </Menu>
-                  <MenuItem text="_Exit">
+                  <MenuItem text="_Exit" onAction="#krajAction">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                        <KeyCodeCombination alt="UP" code="W" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
                      </accelerator>
                   </MenuItem>
                </items>
