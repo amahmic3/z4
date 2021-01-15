@@ -21,7 +21,7 @@ public class KorisniciModel {
         try {
             konekcija= DriverManager.getConnection("jdbc:sqlite:korisnici.db");
             upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password,slika FROM korisnik;");
-            upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?;");
+            upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=?,slika=? WHERE id=?;");
             upitZaBrisanje=konekcija.prepareStatement("DELETE FROM korisnik WHERE id=?;");
             //vratiNaDefault();
         } catch (SQLException throwables) {
@@ -126,7 +126,8 @@ public class KorisniciModel {
                 upitZaPromjenu.setString(3, k.getEmail());
                 upitZaPromjenu.setString(4, k.getUsername());
                 upitZaPromjenu.setString(5, k.getPassword());
-                upitZaPromjenu.setInt(6, k.getId());
+                upitZaPromjenu.setString(6, k.getSlika());
+                upitZaPromjenu.setInt(7,k.getId());
                 upitZaPromjenu.executeUpdate();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();

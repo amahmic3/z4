@@ -45,7 +45,7 @@
                   <Button fx:id="btnKraj" cancelButton="true" mnemonicParsing="false" onAction="#krajAction" text="Kraj" />
               </buttons>
             </ButtonBar>
-            <Button fx:id="imgKorisnik" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="128.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.columnSpan="2" />
+            <Button fx:id="imgKorisnik" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="128.0" prefWidth="128.0" GridPane.columnIndex="1" GridPane.columnSpan="2" onAction="#pretragaSlike" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

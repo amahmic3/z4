@@ -62,7 +62,6 @@ public class KorisnikController {
                 fldPassword.textProperty().bindBidirectional( newKorisnik.passwordProperty() );
                 Platform.runLater(()->{
                     Image slika = new Image(newKorisnik.getSlika(),128,128,false,false);
-                    while (slika.getProgress()!=1.0);
                     if(slika.isError()) System.out.println(slika.getException());
                     imgKorisnik.setGraphic(new ImageView(slika));
                 });
@@ -160,5 +159,24 @@ public class KorisnikController {
         fajl.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text files","*.txt"));
         model.zapisiDatoteku(fajl.showSaveDialog(window));
     }
-
+    public void pretragaSlike(ActionEvent actionEvent) throws IOException {
+        Stage pretraga = new Stage();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pretragaSlike.fxml"));
+        loader.setController(new PretragaController());
+        pretraga.setTitle("Pretraga slike");
+        pretraga.setScene(new Scene(loader.load(),USE_COMPUTED_SIZE,400));
+        pretraga.show();
+        pretraga.setOnHiding((e)->{
+            PretragaController kontroler = loader.getController();
+            if(kontroler.isPromjeniSliku()){
+                model.getTrenutniKorisnik().setSlika(kontroler.getUrlSlike());
+                Platform.runLater(()->{
+                    Image slika = new Image(model.getTrenutniKorisnik().getSlika(),128,128,false,false);
+                    while (slika.getProgress()!=1.0);
+                    if(slika.isError()) System.out.println(slika.getException());
+                    imgKorisnik.setGraphic(new ImageView(slika));
+                });
+            }
+        });
+    }
 }
