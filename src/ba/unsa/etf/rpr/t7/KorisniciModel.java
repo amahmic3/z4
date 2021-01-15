@@ -20,14 +20,14 @@ public class KorisniciModel {
     public KorisniciModel() {
         try {
             konekcija= DriverManager.getConnection("jdbc:sqlite:korisnici.db");
-            upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password FROM korisnik;");
+            upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password,slika FROM korisnik;");
             upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?;");
             upitZaBrisanje=konekcija.prepareStatement("DELETE FROM korisnik WHERE id=?;");
             //vratiNaDefault();
         } catch (SQLException throwables) {
             regenerisiBazu();
             try {
-                upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password FROM korisnik;");
+                upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password,slika FROM korisnik;");
                 upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?;");
                 upitZaBrisanje=konekcija.prepareStatement("DELETE FROM korisnik WHERE id=?;");
             } catch (SQLException e) {
@@ -59,7 +59,7 @@ public class KorisniciModel {
             while(rezultatUpita.next()){
                 korisnici.add(new Korisnik(rezultatUpita.getInt(1),rezultatUpita.getString(2),rezultatUpita.getString(3),
                         rezultatUpita.getString(4), rezultatUpita.getString(5),
-                        rezultatUpita.getString(6)));
+                        rezultatUpita.getString(6),rezultatUpita.getString(7)));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -119,16 +119,20 @@ public class KorisniciModel {
         this.trenutniKorisnik.set(korisnici.get(i));
     }
     public void azururajKorisnika(Korisnik k){
-        try {
-            upitZaPromjenu.setString(1,k.getIme());
-            upitZaPromjenu.setString(2,k.getPrezime());
-            upitZaPromjenu.setString(3,k.getEmail());
-            upitZaPromjenu.setString(4,k.getUsername());
-            upitZaPromjenu.setString(5,k.getPassword());
-            upitZaPromjenu.setInt(6,k.getId());
-            upitZaPromjenu.executeUpdate();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        if(k.getId()!=0) {
+            try {
+                upitZaPromjenu.setString(1, k.getIme());
+                upitZaPromjenu.setString(2, k.getPrezime());
+                upitZaPromjenu.setString(3, k.getEmail());
+                upitZaPromjenu.setString(4, k.getUsername());
+                upitZaPromjenu.setString(5, k.getPassword());
+                upitZaPromjenu.setInt(6, k.getId());
+                upitZaPromjenu.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+        }else{
+
         }
     }
     public void obrisiKorisnika(int k){

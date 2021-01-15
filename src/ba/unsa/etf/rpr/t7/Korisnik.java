@@ -5,22 +5,25 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Korisnik {
     private SimpleIntegerProperty id;
-    private SimpleStringProperty ime, prezime, email, username, password;
+    private SimpleStringProperty ime, prezime, email, username, password,slika;
 
     public Korisnik(String ime, String prezime, String email, String username, String password) {
+        this.id=new SimpleIntegerProperty(0);
         this.ime = new SimpleStringProperty(ime);
         this.prezime = new SimpleStringProperty(prezime);
         this.email = new SimpleStringProperty(email);
         this.username = new SimpleStringProperty(username);
         this.password = new SimpleStringProperty(password);
+        slika=new SimpleStringProperty("img/face-smile.png");
     }
-    public Korisnik(int id,String ime, String prezime, String email, String username, String password) {
+    public Korisnik(int id,String ime, String prezime, String email, String username, String password,String slika) {
         this.id=new SimpleIntegerProperty(id);
         this.ime = new SimpleStringProperty(ime);
         this.prezime = new SimpleStringProperty(prezime);
         this.email = new SimpleStringProperty(email);
         this.username = new SimpleStringProperty(username);
         this.password = new SimpleStringProperty(password);
+        this.slika=new SimpleStringProperty(slika);
     }
 
 
@@ -99,5 +102,17 @@ public class Korisnik {
 
     public void setId(int id) {
         this.id.set(id);
+    }
+
+    public String getSlika() {
+        return slika.get();
+    }
+
+    public SimpleStringProperty slikaProperty() {
+        return slika;
+    }
+
+    public void setSlika(String slika) {
+        this.slika.set(slika);
     }
 }

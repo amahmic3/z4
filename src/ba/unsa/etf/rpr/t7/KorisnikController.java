@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -21,6 +23,7 @@ public class KorisnikController {
     public TextField fldUsername;
     public ListView<Korisnik> listKorisnici;
     public PasswordField fldPassword;
+    public Button imgKorisnik;
 
     private KorisniciModel model;
 
@@ -35,7 +38,6 @@ public class KorisnikController {
             model.setTrenutniKorisnik(newKorisnik);
             listKorisnici.refresh();
          });
-
         model.trenutniKorisnikProperty().addListener((obs, oldKorisnik, newKorisnik) -> {
             if (oldKorisnik != null) {
                 fldIme.textProperty().unbindBidirectional(oldKorisnik.imeProperty() );
@@ -50,6 +52,7 @@ public class KorisnikController {
                 fldEmail.setText("");
                 fldUsername.setText("");
                 fldPassword.setText("");
+
             }
             else {
                 fldIme.textProperty().bindBidirectional( newKorisnik.imeProperty() );
@@ -57,6 +60,12 @@ public class KorisnikController {
                 fldEmail.textProperty().bindBidirectional( newKorisnik.emailProperty() );
                 fldUsername.textProperty().bindBidirectional( newKorisnik.usernameProperty() );
                 fldPassword.textProperty().bindBidirectional( newKorisnik.passwordProperty() );
+                Platform.runLater(()->{
+                    Image slika = new Image(newKorisnik.getSlika(),128,128,false,false);
+                    while (slika.getProgress()!=1.0);
+                    if(slika.isError()) System.out.println(slika.getException());
+                    imgKorisnik.setGraphic(new ImageView(slika));
+                });
             }
 
         });
