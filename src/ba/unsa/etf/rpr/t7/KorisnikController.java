@@ -60,11 +60,12 @@ public class KorisnikController {
                 fldEmail.textProperty().bindBidirectional( newKorisnik.emailProperty() );
                 fldUsername.textProperty().bindBidirectional( newKorisnik.usernameProperty() );
                 fldPassword.textProperty().bindBidirectional( newKorisnik.passwordProperty() );
-                Platform.runLater(()->{
-                    Image slika = new Image(newKorisnik.getSlika(),128,128,false,false);
+                Thread promjenaSlike = new Thread(()->{
+                    Image slika = new Image(newKorisnik.getSlika(),128,128,false,false,true);
                     if(slika.isError()) System.out.println(slika.getException());
                     imgKorisnik.setGraphic(new ImageView(slika));
                 });
+                promjenaSlike.run();
             }
 
         });
@@ -171,8 +172,7 @@ public class KorisnikController {
             if(kontroler.isPromjeniSliku()){
                 model.getTrenutniKorisnik().setSlika(kontroler.getUrlSlike());
                 Platform.runLater(()->{
-                    Image slika = new Image(model.getTrenutniKorisnik().getSlika(),128,128,false,false);
-                    while (slika.getProgress()!=1.0);
+                    Image slika = new Image(model.getTrenutniKorisnik().getSlika(),128,128,false,false,true);
                     if(slika.isError()) System.out.println(slika.getException());
                     imgKorisnik.setGraphic(new ImageView(slika));
                 });

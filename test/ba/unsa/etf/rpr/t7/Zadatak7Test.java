@@ -1,7 +1,6 @@
-/*package ba.unsa.etf.rpr.t7;
+package ba.unsa.etf.rpr.t7;
 
 import org.junit.jupiter.api.Test;
-import org.testfx.api.FxRobot;
 
 import java.io.File;
 import java.sql.Connection;
@@ -75,4 +74,3 @@ public class Zadatak7Test {
         }
     }
 }
- */

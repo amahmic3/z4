@@ -1,10 +1,12 @@
 package ba.unsa.etf.rpr.t7;
 
-import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -13,7 +15,6 @@ import javafx.stage.Stage;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -27,44 +28,61 @@ public class PretragaController {
     private Button[] tipke = new Button[25];
     private String[] linkovi = new String[25];
     private boolean promjeniSliku=false;
+    private String džejson;
+    private int brojSlika;
+    @FXML
+    Parent root;
     public PretragaController(){
-
+        brojSlika=0;
     }
     @FXML
     public void initialize(){
-
+        for (int i = 0; i < 25; i++) {
+            tipke[i] = (Button) root.lookup("#slika" + i);
+        }
     }
+
     public void pretraga(ActionEvent actionEvent){
         if(!fldTekst.getText().equals("")) {
-
-            for (int i = 0; i < 25; i++) {
-                tipke[i] = (Button) ((Node) actionEvent.getSource()).getScene().lookup("#slika" + i);
-            }
-            try {
-                URL konekcija = new URL(urlPretrage + fldTekst.getText());
-                InputStream stream = konekcija.openStream();
-                jsonObjectn = new JSONObject(new String(stream.readAllBytes()));
-                JSONArray gifovi = jsonObjectn.getJSONArray("data");
-                for (int i = 0; i<25 && i < gifovi.length(); i++) {
-
-                    tipke[i].setGraphic(new ImageView(new Image("/img/loading.gif",128,128,false,false)));
-                    tipke[i].visibleProperty().setValue(true);
-
-                    URL link = new URL(gifovi.getJSONObject(i).getJSONObject("images").getJSONObject("original_still").getString("url"));
-                    linkovi[i]="https://i.giphy.com" + link.getPath();
-                    System.out.println(linkovi[i]);
-                    int finalI = i;
-                    Platform.runLater(()-> {
-                        tipke[finalI].visibleProperty().setValue(true);
-                        Image novaSlika = new Image(linkovi[finalI], 128, 128, false, false);
-                        tipke[finalI].setGraphic(new ImageView(novaSlika));
-                    });
+            Task<Void> posao = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    URL konekcija = new URL(urlPretrage + fldTekst.getText());
+                    InputStream stream = konekcija.openStream();
+                    džejson=new String(stream.readAllBytes());
+                    return null;
                 }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            };
+            posao.setOnSucceeded((event)->{
+                try {
+                    jsonObjectn = new JSONObject(džejson);
+                    JSONArray gifovi = jsonObjectn.getJSONArray("data");
+
+                    for (int i = 0; i < 25 && i < gifovi.length(); i++) {
+                        tipke[i].setGraphic(new ImageView(new Image("/img/loading.gif", 128, 128, false, false)));
+                        tipke[i].visibleProperty().setValue(true);
+                        URL link = new URL(gifovi.getJSONObject(i).getJSONObject("images").getJSONObject("original_still").getString("url"));
+                        linkovi[i] = "https://i.giphy.com" + link.getPath();
+                        System.out.println(linkovi[i]);
+                        Image novaSlika = new Image(linkovi[i], 128, 128, false, false, true);
+                        tipke[i].setGraphic(new ImageView(novaSlika));
+                    }
+                    System.out.println(brojSlika+ " "+ gifovi.length());
+                    if(brojSlika>gifovi.length()){
+                        for(int i=gifovi.length();i<brojSlika;i++) tipke[i].setVisible(false);
+                        brojSlika=gifovi.length();
+                    }else if(gifovi.length()>=25){
+                        brojSlika=25;
+                    }else brojSlika=gifovi.length();
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
+            });
+            posao.setOnFailed((event )->{
+                brojSlika=0;
+                for(int i=0;i<25;i++) tipke[i].setVisible(false);
+            });
+            new Thread(posao).start();
         }
     }
     public void izlaz(ActionEvent actionEvent){
@@ -85,9 +103,17 @@ public class PretragaController {
     public boolean isPromjeniSliku() {
         return promjeniSliku;
     }
-    public void promjeniSliku(ActionEvent actionEvent){
-        promjeniSliku=true;
-        ((Stage)((Node)actionEvent.getSource()).getScene().getWindow()).close();
+    public void promjeniSliku(ActionEvent actionEvent) {
+        if (!urlSlike.get().equals("")) {
+            promjeniSliku = true;
+            ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
+        }else{
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Nijedna slika nije izabrana");
+            alert.setHeaderText("Niste izabrali sliku koju želite");
+            alert.setContentText("Unesite pretragu a zatim izaberite sliku, ili kliknite tipku Cancel!");
+            alert.showAndWait();
+        }
     }
 
     public String getUrlSlike() {

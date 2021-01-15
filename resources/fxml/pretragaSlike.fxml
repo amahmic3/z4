@@ -24,7 +24,7 @@
    <center>
       <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
          <content>
-            <FlowPane hgap="5.0" prefHeight="400.0" vgap="5.0">
+            <FlowPane fx:id="root" hgap="5.0" prefHeight="400.0" vgap="5.0">
                <children>
                   <Button fx:id="slika0" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="128.0" prefWidth="128.0" visible="false" onAction="#odaberi"/>
                   <Button fx:id="slika1" contentDisplay="GRAPHIC_ONLY" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="128.0" prefWidth="128.0" visible="false" onAction="#odaberi" />

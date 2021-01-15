@@ -133,7 +133,22 @@ public class KorisniciModel {
                 throwables.printStackTrace();
             }
         }else{
-
+            try {
+                ResultSet rez= konekcija.createStatement().executeQuery("SELECT max(id) FROM korisnik;");
+                rez.next();
+                k.setId(rez.getInt(1)+1);
+                PreparedStatement unosKorisnika =konekcija.prepareStatement("INSERT INTO KORISNIK VALUES(?,?,?,?,?,?,?)");
+                unosKorisnika.setInt(1,k.getId());
+                unosKorisnika.setString(2,k.getIme());
+                unosKorisnika.setString(3,k.getPrezime());
+                unosKorisnika.setString(4,k.getEmail());
+                unosKorisnika.setString(5,k.getUsername());
+                unosKorisnika.setString(6,k.getPassword());
+                unosKorisnika.setString(7,k.getSlika());
+                unosKorisnika.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
         }
     }
     public void obrisiKorisnika(int k){
