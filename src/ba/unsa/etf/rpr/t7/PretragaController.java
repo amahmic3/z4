@@ -1,5 +1,6 @@
 package ba.unsa.etf.rpr.t7;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -47,41 +48,42 @@ public class PretragaController {
             Task<Void> posao = new Task<Void>() {
                 @Override
                 protected Void call() throws Exception {
-                    URL konekcija = new URL(urlPretrage + fldTekst.getText());
+                    URL konekcija = new URL(urlPretrage + fldTekst.getText()+"&limit=25");
                     InputStream stream = konekcija.openStream();
                     džejson=new String(stream.readAllBytes());
+                    try {
+                        jsonObjectn = new JSONObject(džejson);
+                        JSONArray gifovi = jsonObjectn.getJSONArray("data");
+
+                        for (int i = 0; i < gifovi.length(); i++) {
+                            int finalI = i;
+                            Platform.runLater(()-> {
+                                        tipke[finalI].setGraphic(new ImageView(new Image("/img/loading.gif", 128, 128, false, false)));
+                                        tipke[finalI].visibleProperty().setValue(true);
+                                    });
+                            URL link = new URL(gifovi.getJSONObject(i).getJSONObject("images").getJSONObject("original_still").getString("url"));
+                            linkovi[i] = "https://i.giphy.com" + link.getPath();
+                            System.out.println(linkovi[i]);
+                            Thread.sleep(400);
+                            int finalI1 = i;
+                            Platform.runLater(()-> {
+                                Image novaSlika = new Image(linkovi[finalI1], 128, 128, false, false, true);
+                                tipke[finalI1].setGraphic(new ImageView(novaSlika));
+                            });
+                            }
+                        System.out.println(brojSlika+ " "+ gifovi.length());
+                        if(brojSlika>gifovi.length()){
+                            for(int i=gifovi.length();i<brojSlika;i++) tipke[i].setVisible(false);
+                            brojSlika=gifovi.length();
+                        }else if(gifovi.length()>=25){
+                            brojSlika=25;
+                        }else brojSlika=gifovi.length();
+                    } catch (MalformedURLException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     return null;
                 }
             };
-            posao.setOnSucceeded((event)->{
-                try {
-                    jsonObjectn = new JSONObject(džejson);
-                    JSONArray gifovi = jsonObjectn.getJSONArray("data");
-
-                    for (int i = 0; i < 25 && i < gifovi.length(); i++) {
-                        tipke[i].setGraphic(new ImageView(new Image("/img/loading.gif", 128, 128, false, false)));
-                        tipke[i].visibleProperty().setValue(true);
-                        URL link = new URL(gifovi.getJSONObject(i).getJSONObject("images").getJSONObject("original_still").getString("url"));
-                        linkovi[i] = "https://i.giphy.com" + link.getPath();
-                        System.out.println(linkovi[i]);
-                        Image novaSlika = new Image(linkovi[i], 128, 128, false, false, true);
-                        tipke[i].setGraphic(new ImageView(novaSlika));
-                    }
-                    System.out.println(brojSlika+ " "+ gifovi.length());
-                    if(brojSlika>gifovi.length()){
-                        for(int i=gifovi.length();i<brojSlika;i++) tipke[i].setVisible(false);
-                        brojSlika=gifovi.length();
-                    }else if(gifovi.length()>=25){
-                        brojSlika=25;
-                    }else brojSlika=gifovi.length();
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                }
-            });
-            posao.setOnFailed((event )->{
-                brojSlika=0;
-                for(int i=0;i<25;i++) tipke[i].setVisible(false);
-            });
             new Thread(posao).start();
         }
     }

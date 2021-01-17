@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
 
@@ -142,10 +143,11 @@ public class KorisnikController {
     }
     public void abouUsAction(ActionEvent actionEvent) throws IOException {
         Stage prozor = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/about.fxml"));
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/about.fxml"),bundle);
         loader.setController(new AboutController());
         prozor.setResizable(false);
-        prozor.setTitle("About");
+        prozor.setTitle(bundle.getString("about"));
         prozor.setScene(new Scene(loader.load(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
         prozor.show();
     }
@@ -162,9 +164,10 @@ public class KorisnikController {
     }
     public void pretragaSlike(ActionEvent actionEvent) throws IOException {
         Stage pretraga = new Stage();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pretragaSlike.fxml"));
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/pretragaSlike.fxml"),bundle);
         loader.setController(new PretragaController());
-        pretraga.setTitle("Pretraga slike");
+        pretraga.setTitle(bundle.getString("pretraga"));
         pretraga.setScene(new Scene(loader.load(),USE_COMPUTED_SIZE,400));
         pretraga.show();
         pretraga.setOnHiding((e)->{

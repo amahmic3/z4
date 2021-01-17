@@ -1,29 +1,39 @@
 
-I
-java:S1602'",Remove useless curly braces around statement(ÃÉş©8ë÷—ğ.
 h
-java:S1104"RMake fldIme a static final constant or non-public and provide accessors if needed.(ŠºÁ¾
-m
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(·òşÿÿÿÿ
-O
-java:S1172w"2Remove this unused method parameter "actionEvent".(—¼‘8µÛèğ.
-l
-java:S1192?"ODefine a constant instead of duplicating this literal "poljeIspravno" 10 times.(‹’úŞ8ë÷—ğ.
-O
-java:S1172t"2Remove this unused method parameter "actionEvent".(ªåº³8ë÷—ğ.
-n
-java:S1192>"SDefine a constant instead of duplicating this literal "poljeNijeIspravno" 10 times.(¬ÄÔûÿÿÿÿ
-l
-java:S1104"VMake fldPrezime a static final constant or non-public and provide accessors if needed.(¬Ğ¡§
-j
-java:S1104"TMake fldEmail a static final constant or non-public and provide accessors if needed.(ÙœÜ¤
-I
-java:S1602}",Remove useless curly braces around statement(ÃÉş©8†¦ùğ.
-O
-java:S1172o"2Remove this unused method parameter "actionEvent".(Š÷£8ë÷—ğ.
-m
-java:S1104"WMake fldUsername a static final constant or non-public and provide accessors if needed.(ïÀø°
+java:S1104"RMake fldIme a static final constant or non-public and provide accessors if needed.(ŠºÁ¾
+P
+java:S1172"2Remove this unused method parameter "actionEvent".(ªåº³8ë÷—ğ.
 t
-java:S1104"YMake listKorisnici a static final constant or non-public and provide accessors if needed.(ç²ğÌùÿÿÿÿ
+java:S1104"YMake listKorisnici a static final constant or non-public and provide accessors if needed.(ç²ğÌùÿÿÿÿ
+U
+java:S1172£"2Remove this unused method parameter "actionEvent".(¢›®åüÿÿÿÿ8Ãú»²ğ.
+j
+java:S1104"TMake fldEmail a static final constant or non-public and provide accessors if needed.(ÙœÜ¤
+‚
+java:S1217D"`Call the method Thread.start() to execute the content of the run() method in a dedicated thread.(Ø¶öøÿÿÿÿ8ƒˆ¢¸ğ.
+J
+java:S1602Š",Remove useless curly braces around statement(ÃÉş©8†¦ùğ.
+R
+java:S1611ª"/Remove the parentheses around the "e" parameter(æÇôôùÿÿÿÿ8‡ÿÎ¶ğ.
+n
+java:S1192K"SDefine a constant instead of duplicating this literal "poljeNijeIspravno" 10 times.(¬ÄÔûÿÿÿÿ
 l
-java:S1104"WMake fldPassword a static final constant or non-public and provide accessors if needed.(¾¢È
+java:S1104"VMake fldPrezime a static final constant or non-public and provide accessors if needed.(¬Ğ¡§
+V	java:S106°"9Replace this use of System.out or System.err by a logger.(Ğ°ŒŞ8ü­Ü¶ğ.
+P
+java:S1172„"2Remove this unused method parameter "actionEvent".(—¼‘8µÛèğ.
+s
+java:S1104"WMake imgKorisnik a static final constant or non-public and provide accessors if needed.(´¾´8à¨µ°ğ.
+m
+java:S1104"WMake fldUsername a static final constant or non-public and provide accessors if needed.(ïÀø°
+l
+java:S1104"WMake fldPassword a static final constant or non-public and provide accessors if needed.(¾¢È
+l
+java:S1192L"ODefine a constant instead of duplicating this literal "poljeIspravno" 10 times.(‹’úŞ8ë÷—ğ.
+m
+java:S3776#"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(·òşÿÿÿÿ
+U
+java:S1172"2Remove this unused method parameter "actionEvent".(˜õÛüÿÿÿÿ8„Ã™ğ.
+U	java:S106A"9Replace this use of System.out or System.err by a logger.(Ğ°ŒŞ8Î‡Ù°ğ.
+O
+java:S1172|"2Remove this unused method parameter "actionEvent".(Š÷£8ë÷—ğ.
