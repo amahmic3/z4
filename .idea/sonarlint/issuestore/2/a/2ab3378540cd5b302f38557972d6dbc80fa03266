@@ -1,3 +1,7 @@
 
 s
-java:S1104"QMake slika a static final constant or non-public and provide accessors if needed.(Ø»Âßùÿÿÿÿ8¯«øšð.
+java:S1104"QMake slika a static final constant or non-public and provide accessors if needed.(Ø»Âßùÿÿÿÿ8¯«øšð.
+O
+java:S1172"2Remove this unused method parameter "actionEvent".(Ú†êÁ8¬êš¦ñ.
+c
+java:S1075!"ARefactor your code to get this URI from a customizable parameter.(ïÊÞøùÿÿÿÿ8¬êš¦ñ.

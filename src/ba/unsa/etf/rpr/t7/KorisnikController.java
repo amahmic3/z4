@@ -162,7 +162,7 @@ public class KorisnikController {
 
         FileChooser fajl = new FileChooser();
         fajl.setTitle("Save");
-        fajl.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Passwd file","*.passwd"));
+        fajl.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text file","*.txt"));
         model.zapisiDatoteku(fajl.showSaveDialog(window));
     }
     public void pretragaSlike(ActionEvent actionEvent) throws IOException {

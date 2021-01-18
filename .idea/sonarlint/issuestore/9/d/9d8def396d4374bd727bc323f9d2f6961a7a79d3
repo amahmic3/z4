@@ -1,49 +1,45 @@
 
-s
-java:S1104"WMake imgKorisnik a static final constant or non-public and provide accessors if needed.(´¾´8à¨µ°ğ.
-l
-java:S1104"VMake fldPrezime a static final constant or non-public and provide accessors if needed.(¬Ğ¡§
-P
-java:S1172ˆ"2Remove this unused method parameter "actionEvent".(—¼‘8µÛèğ.
-U
-java:S1172É"2Remove this unused method parameter "actionEvent".(ãğ­¨ùÿÿÿÿ8Òèì•ñ.
-V	java:S106¶"9Replace this use of System.out or System.err by a logger.(Ğ°ŒŞ8ü­Ü¶ğ.
-P
-java:S1172€"2Remove this unused method parameter "actionEvent".(Š÷£8ë÷—ğ.
-U
-java:S1172“"2Remove this unused method parameter "actionEvent".(˜õÛüÿÿÿÿ8„Ã™ğ.
-j
-java:S1192•"LDefine a constant instead of duplicating this literal "Translation" 3 times.(“òáĞ8µ¬‰—ñ.
-R
-java:S1611°"/Remove the parentheses around the "e" parameter(æÇôôùÿÿÿÿ8‡ÿÎ¶ğ.
-U	java:S106E"9Replace this use of System.out or System.err by a logger.(Ğ°ŒŞ8Î‡Ù°ğ.
-U
-java:S1172¨"2Remove this unused method parameter "actionEvent".(¢›®åüÿÿÿÿ8Ãú»²ğ.
-K
-java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï8Òèì•ñ.
-K
-java:S1128"/Remove this unused import 'java.sql.ResultSet'.(ˆóÚw8µ¬‰—ñ.
-l
-java:S1104"WMake fldPassword a static final constant or non-public and provide accessors if needed.(¾¢È
-P
-java:S1172Å"2Remove this unused method parameter "actionEvent".(û‹ªà8Ò»ì•ñ.
-t
-java:S1104"YMake listKorisnici a static final constant or non-public and provide accessors if needed.(ç²ğÌùÿÿÿÿ
-j
-java:S1104"TMake fldEmail a static final constant or non-public and provide accessors if needed.(ÙœÜ¤
-‚
-java:S1217H"`Call the method Thread.start() to execute the content of the run() method in a dedicated thread.(Ø¶öøÿÿÿÿ8ƒˆ¢¸ğ.
-n
-java:S1192O"SDefine a constant instead of duplicating this literal "poljeNijeIspravno" 10 times.(¬ÄÔûÿÿÿÿ
-m
-java:S1104"WMake fldUsername a static final constant or non-public and provide accessors if needed.(ïÀø°
 l
 java:S1192P"ODefine a constant instead of duplicating this literal "poljeIspravno" 10 times.(‹’úŞ8ë÷—ğ.
 m
-java:S3776'"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(·òşÿÿÿÿ
-h
-java:S1104"RMake fldIme a static final constant or non-public and provide accessors if needed.(ŠºÁ¾
+java:S1104"WMake fldUsername a static final constant or non-public and provide accessors if needed.(ïÀø°
+U
+java:S1172¨"2Remove this unused method parameter "actionEvent".(¢›®åüÿÿÿÿ8Ãú»²ğ.
+j
+java:S1192•"LDefine a constant instead of duplicating this literal "Translation" 3 times.(“òáĞ8µ¬‰—ñ.
+V	java:S106¶"9Replace this use of System.out or System.err by a logger.(Ğ°ŒŞ8ü­Ü¶ğ.
+l
+java:S1104"VMake fldPrezime a static final constant or non-public and provide accessors if needed.(¬Ğ¡§
+P
+java:S1172€"2Remove this unused method parameter "actionEvent".(Š÷£8ë÷—ğ.
 J
 java:S1602",Remove useless curly braces around statement(ÃÉş©8†¦ùğ.
+l
+java:S1104"WMake fldPassword a static final constant or non-public and provide accessors if needed.(¾¢È
+P
+java:S1172ˆ"2Remove this unused method parameter "actionEvent".(—¼‘8µÛèğ.
+j
+java:S1104"TMake fldEmail a static final constant or non-public and provide accessors if needed.(ÙœÜ¤
+U
+java:S1172É"2Remove this unused method parameter "actionEvent".(ãğ­¨ùÿÿÿÿ8Òèì•ñ.
+h
+java:S1104"RMake fldIme a static final constant or non-public and provide accessors if needed.(ŠºÁ¾
 P
 java:S1172…"2Remove this unused method parameter "actionEvent".(ªåº³8ë÷—ğ.
+U	java:S106E"9Replace this use of System.out or System.err by a logger.(Ğ°ŒŞ8Î‡Ù°ğ.
+U
+java:S1172“"2Remove this unused method parameter "actionEvent".(˜õÛüÿÿÿÿ8„Ã™ğ.
+n
+java:S1192O"SDefine a constant instead of duplicating this literal "poljeNijeIspravno" 10 times.(¬ÄÔûÿÿÿÿ
+t
+java:S1104"YMake listKorisnici a static final constant or non-public and provide accessors if needed.(ç²ğÌùÿÿÿÿ
+P
+java:S1172Å"2Remove this unused method parameter "actionEvent".(û‹ªà8Ò»ì•ñ.
+‚
+java:S1217H"`Call the method Thread.start() to execute the content of the run() method in a dedicated thread.(Ø¶öøÿÿÿÿ8ƒˆ¢¸ğ.
+R
+java:S1611°"/Remove the parentheses around the "e" parameter(æÇôôùÿÿÿÿ8‡ÿÎ¶ğ.
+s
+java:S1104"WMake imgKorisnik a static final constant or non-public and provide accessors if needed.(´¾´8à¨µ°ğ.
+m
+java:S3776'"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(·òşÿÿÿÿ
