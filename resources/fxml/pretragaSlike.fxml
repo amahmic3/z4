@@ -3,12 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <top>
       <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER_LEFT">
          <children>
-            <TextField fx:id="fldTekst" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
-            <ButtonBar>
+            <TextField fx:id="fldTekst" HBox.hgrow="ALWAYS" />
+            <ButtonBar HBox.hgrow="SOMETIMES">
               <buttons>
                 <Button mnemonicParsing="false" onAction="#pretraga" text="%trazi" />
                   <Button mnemonicParsing="false" onAction="#promjeniSliku" text="%potvrdi" />

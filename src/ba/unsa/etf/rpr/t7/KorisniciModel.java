@@ -28,7 +28,7 @@ public class KorisniciModel {
             regenerisiBazu();
             try {
                 upitZaPunjenje=konekcija.prepareStatement("SELECT id,ime,prezime,email,username,password,slika FROM korisnik;");
-                upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=? WHERE id=?;");
+                upitZaPromjenu=konekcija.prepareStatement("UPDATE korisnik SET ime=?,prezime=?,email=?,username=?,password=?,slika=? WHERE id=?;");
                 upitZaBrisanje=konekcija.prepareStatement("DELETE FROM korisnik WHERE id=?;");
             } catch (SQLException e) {
                 e.printStackTrace();
