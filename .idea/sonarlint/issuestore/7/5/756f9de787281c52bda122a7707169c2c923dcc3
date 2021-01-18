@@ -1,19 +1,19 @@
 
-k
-java:S20954"IUse try-with-resources or close this "InputStream" in a "finally" clause.(ÿÿŒşÿÿÿÿ8’˜ÿ¿ğ.
-Z	java:S106J"9Replace this use of System.out or System.err by a logger.(ç É­øÿÿÿÿ8ÿŒ€åğ.
+O
+java:S1172."2Remove this unused method parameter "actionEvent".(ÇõâÜ8ÔÙç¾ğ.
 c
 java:S2142Q"FEither re-interrupt this method or rethrow the "InterruptedException".(¦‰èğ8ßÚšåğ.
 q
 java:S1104"TMake fldTekst a static final constant or non-public and provide accessors if needed.(µİÙò8¨Û¶³ğ.
-o
-java:S3776."RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÇõâÜ8ÿŒ€åğ.
 E
 java:S1659_"(Declare "predzadnji" on a separate line.(ïêîä8ÔÙç¾ğ.
+Z	java:S106J"9Replace this use of System.out or System.err by a logger.(ç É­øÿÿÿÿ8ÿŒ€åğ.
+t	java:S116 "SRename this field "dÅ¾ejson" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ—ôşÿÿÿÿ8Òÿÿ¾ğ.
+Z	java:S106B"9Replace this use of System.out or System.err by a logger.(òÀ²¢ûÿÿÿÿ8ÿŒ€åğ.
+o
+java:S3776."RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ÇõâÜ8ÿŒ€åğ.
 >
 java:S1170"!Make this final field static too.(ÿÅ8×Çÿ²ğ.
-Z	java:S106B"9Replace this use of System.out or System.err by a logger.(òÀ²¢ûÿÿÿÿ8ÿŒ€åğ.
-t	java:S116 "SRename this field "dÅ¾ejson" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ—ôşÿÿÿÿ8Òÿÿ¾ğ.
 U	java:S106f"9Replace this use of System.out or System.err by a logger.(ÊçÚÉ8ÔÙç¾ğ.
-O
-java:S1172."2Remove this unused method parameter "actionEvent".(ÇõâÜ8ÔÙç¾ğ.
+k
+java:S20954"IUse try-with-resources or close this "InputStream" in a "finally" clause.(ÿÿŒşÿÿÿÿ8’˜ÿ¿ğ.

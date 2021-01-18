@@ -26,7 +26,7 @@
                <children>
                   <Label text="%opis" />
                   <Label text="%verzija" />
-                  <Hyperlink text="https://github.com/RPR-2019/rpr20-zadaca4-amahmic3" />
+                  <Hyperlink onAction="#otvoriLink" text="https://github.com/RPR-2019/rpr20-zadaca4-amahmic3" />
                   <Label text="%autor" />
                </children>
             </VBox>

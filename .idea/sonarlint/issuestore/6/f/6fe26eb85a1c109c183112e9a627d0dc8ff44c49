@@ -1,24 +1,24 @@
 
-I
-java:S1659",Declare "upitZaPromjenu" on a separate line.(âØï§8‹­îŒğ.
-i
-java:S2095-"GUse try-with-resources or close this "Statement" in a "finally" clause.(æ˜œáşÿÿÿÿ8¡ä‹ğ.
+}
+java:S1217q"`Call the method Thread.start() to execute the content of the run() method in a dedicated thread.(şúâÑ8ƒé•ğ.
+R
+java:S2695‚"/This "PreparedStatement" only has 6 parameters.(Æ¶Úşşÿÿÿÿ8ıêò¶ğ.
+j
+java:S2095‰"GUse try-with-resources or close this "Statement" in a "finally" clause.(’¬øüÿÿÿÿ8Ïı»¸ğ.
 r
 java:S2095Œ"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(øšóüÿÿÿÿ8Ë¦Ç¸ğ.
 F
 java:S2115")Add password protection to this database.(åÍÅ’8Âƒš‹ğ.
-R
-java:S2695‚"/This "PreparedStatement" only has 6 parameters.(Æ¶Úşşÿÿÿÿ8ıêò¶ğ.
+]	java:S125"<This block of commented-out lines of code should be removed.(òÏ´ûÿÿÿÿ8ü”Ç²ğ.
+I
+java:S1659",Declare "upitZaPromjenu" on a separate line.(âØï§8‹­îŒğ.
+I
+java:S1659",Declare "upitZaBrisanje" on a separate line.(âØï§8ß–¯ğ.
+i
+java:S2095K"GUse try-with-resources or close this "Statement" in a "finally" clause.(„¶™ıúÿÿÿÿ8²Üå‹ğ.
 I
 java:S1602p",Remove useless curly braces around statement(îøêÜ8›œç•ğ.
 g
 java:S2095("EUse try-with-resources or close this "Scanner" in a "finally" clause.(„şôùÿÿÿÿ8¡ä‹ğ.
-j
-java:S2095‰"GUse try-with-resources or close this "Statement" in a "finally" clause.(’¬øüÿÿÿÿ8Ïı»¸ğ.
-]	java:S125"<This block of commented-out lines of code should be removed.(òÏ´ûÿÿÿÿ8ü”Ç²ğ.
-I
-java:S1659",Declare "upitZaBrisanje" on a separate line.(âØï§8ß–¯ğ.
-}
-java:S1217q"`Call the method Thread.start() to execute the content of the run() method in a dedicated thread.(şúâÑ8ƒé•ğ.
 i
-java:S2095K"GUse try-with-resources or close this "Statement" in a "finally" clause.(„¶™ıúÿÿÿÿ8²Üå‹ğ.
+java:S2095-"GUse try-with-resources or close this "Statement" in a "finally" clause.(æ˜œáşÿÿÿÿ8¡ä‹ğ.

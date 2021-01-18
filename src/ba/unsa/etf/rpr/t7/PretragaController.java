@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
 
 public class PretragaController {
@@ -48,7 +49,7 @@ public class PretragaController {
             Task<Void> posao = new Task<Void>() {
                 @Override
                 protected Void call() throws Exception {
-                    URL konekcija = new URL(urlPretrage + fldTekst.getText()+"&limit=25");
+                    URL konekcija = new URL(new String(urlPretrage + fldTekst.getText()+"&limit=25").replace(" ","%20"));
                     InputStream stream = konekcija.openStream();
                     džejson=new String(stream.readAllBytes());
                     try {
@@ -110,10 +111,11 @@ public class PretragaController {
             promjeniSliku = true;
             ((Stage) ((Node) actionEvent.getSource()).getScene().getWindow()).close();
         }else{
+            ResourceBundle bundle = ResourceBundle.getBundle("Translation");
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Nijedna slika nije izabrana");
-            alert.setHeaderText("Niste izabrali sliku koju želite");
-            alert.setContentText("Unesite pretragu a zatim izaberite sliku, ili kliknite tipku Cancel!");
+            alert.setTitle(bundle.getString("naslovAlerta"));
+            alert.setHeaderText(bundle.getString("headerAlerta"));
+            alert.setContentText(bundle.getString("tekstAlerta"));
             alert.showAndWait();
         }
     }
