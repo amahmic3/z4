@@ -33,7 +33,3 @@ Z
 *test/ba/unsa/etf/rpr/t7/Zadatak7Test2.java,4\f\4faf4fb71bb4bc833b1645e04371ad070c8dc3a3
 ^
 .src/ba/unsa/etf/rpr/t7/PretragaController.java,7\5\756f9de787281c52bda122a7707169c2c923dcc3
-G
-resources_bs.properties,1\f\1ff1594c3f345b28d133e14d419215097893df44
-D
-resources.properties,b\f\bf93a9ac123d2575807fdc11ba0ffbe8181b93a3

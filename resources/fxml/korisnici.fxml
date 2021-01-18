@@ -5,7 +5,7 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:id="harebabo">
    <center>
       <GridPane alignment="center" hgap="10" vgap="10">
          <stylesheets>
@@ -69,8 +69,8 @@
                   </MenuItem>
                   <Menu text="%jezik">
                     <items>
-                      <MenuItem text="%bosanski" />
-                        <MenuItem text="%engleski" />
+                      <MenuItem text="%bosanski" onAction="#setBosanski"/>
+                        <MenuItem text="%engleski" onAction="#setEngleski"/>
                     </items>
                   </Menu>
                   <MenuItem onAction="#krajAction" text="%kraj">

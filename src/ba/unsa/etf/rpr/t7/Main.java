@@ -19,7 +19,7 @@ public class Main extends Application {
         KorisniciModel model = new KorisniciModel();
         model.napuni();
         KorisnikController ctrl = new KorisnikController(model);
-       Locale.setDefault(new Locale("en_US", "US"));
+        Locale.setDefault(new Locale("en_US", "US"));
         ResourceBundle bundle = ResourceBundle.getBundle("Translation");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/korisnici.fxml"),bundle);
         loader.setController(ctrl);

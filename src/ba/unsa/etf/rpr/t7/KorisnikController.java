@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static javafx.scene.control.PopupControl.USE_COMPUTED_SIZE;
@@ -27,7 +29,8 @@ public class KorisnikController {
     public Button imgKorisnik;
 
     private KorisniciModel model;
-
+    @FXML
+    Parent harebabo;
     public KorisnikController(KorisniciModel model) {
         this.model = model;
     }
@@ -159,7 +162,7 @@ public class KorisnikController {
 
         FileChooser fajl = new FileChooser();
         fajl.setTitle("Save");
-        fajl.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text files","*.txt"));
+        fajl.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Passwd file","*.passwd"));
         model.zapisiDatoteku(fajl.showSaveDialog(window));
     }
     public void pretragaSlike(ActionEvent actionEvent) throws IOException {
@@ -172,7 +175,7 @@ public class KorisnikController {
         pretraga.show();
         pretraga.setOnHiding((e)->{
             PretragaController kontroler = loader.getController();
-            if(kontroler.isPromjeniSliku()){
+            if(model.getTrenutniKorisnik()!=null && kontroler.isPromjeniSliku()){
                 model.getTrenutniKorisnik().setSlika(kontroler.getUrlSlike());
                 Platform.runLater(()->{
                     Image slika = new Image(model.getTrenutniKorisnik().getSlika(),128,128,false,false,true);
@@ -181,5 +184,22 @@ public class KorisnikController {
                 });
             }
         });
+    }
+    private void refreshProzor() throws IOException {
+        Stage novaScena = (Stage)harebabo.getScene().getWindow();
+        ResourceBundle bundle = ResourceBundle.getBundle("Translation");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/korisnici.fxml"),bundle);
+        loader.setController(new KorisnikController(model));
+        novaScena.setTitle(bundle.getString("appname"));
+        novaScena.setScene(new Scene(loader.load(),USE_COMPUTED_SIZE,USE_COMPUTED_SIZE));
+        novaScena.show();
+    }
+    public void setEngleski(ActionEvent actionEvent) throws IOException {
+        Locale.setDefault(new Locale("en_US", "US"));
+      refreshProzor();
+    }
+    public void setBosanski(ActionEvent actionEvent) throws IOException {
+        Locale.setDefault(new Locale("bs", "BA"));
+   refreshProzor();
     }
 }
