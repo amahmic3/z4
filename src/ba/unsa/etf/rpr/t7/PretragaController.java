@@ -64,15 +64,13 @@ public class PretragaController {
                                     });
                             URL link = new URL(gifovi.getJSONObject(i).getJSONObject("images").getJSONObject("original_still").getString("url"));
                             linkovi[i] = "https://i.giphy.com" + link.getPath();
-                            System.out.println(linkovi[i]);
-                            Thread.sleep(400);
+                            Thread.sleep(320);
                             int finalI1 = i;
                             Platform.runLater(()-> {
                                 Image novaSlika = new Image(linkovi[finalI1], 128, 128, false, false, true);
                                 tipke[finalI1].setGraphic(new ImageView(novaSlika));
                             });
                             }
-                        System.out.println(brojSlika+ " "+ gifovi.length());
                         if(brojSlika>gifovi.length()){
                             for(int i=gifovi.length();i<brojSlika;i++) tipke[i].setVisible(false);
                             brojSlika=gifovi.length();
